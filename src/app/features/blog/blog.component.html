@@ -1,0 +1,152 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="fade-in">Family Law Blog</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- Blog Introduction -->
+<section class="blog-intro section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8 offset-lg-2 text-center">
+        <div class="intro-content fade-in">
+          <h2>Family Law Insights</h2>
+          <p class="lead">Expert articles on Arizona family law topics</p>
+          <p>Our blog provides valuable information and insights on various family law matters in Arizona. Here you'll find articles written by Attorney Meghan Miller to help you better understand the legal aspects of divorce, child custody, support, and other family law topics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Filter Section -->
+<section class="blog-filter-section">
+  <div class="container">
+    <div class="filter-container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <div class="category-filter">
+            <h3>Filter by Category:</h3>
+            <div class="category-buttons">
+              <button *ngFor="let category of categories" 
+                      class="btn btn-filter" 
+                      [ngClass]="{'active': selectedCategory === category}"
+                      (click)="onCategoryChange(category)">
+                {{ category }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="search-filter">
+            <h3>Search Articles:</h3>
+            <div class="search-input">
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Search by keyword</mat-label>
+                <input matInput (input)="onSearch($event)" placeholder="Enter keywords...">
+                <mat-icon matSuffix>search</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Posts Grid -->
+<section class="blog-posts-section section">
+  <div class="container">
+    <div class="empty-state" *ngIf="filteredPosts.length === 0">
+      <mat-icon>search_off</mat-icon>
+      <h3>No Articles Found</h3>
+      <p>No articles match your current search criteria. Please try a different category or search term.</p>
+      <button class="btn btn-primary" (click)="onCategoryChange('All'); searchTerm = ''; filterPosts()">View All Articles</button>
+    </div>
+    
+    <div class="row" *ngIf="filteredPosts.length > 0">
+      <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let post of filteredPosts">
+        <div class="blog-card card fade-in">
+          <div class="card-img-container">
+            <img [src]="post.imageUrl" [alt]="post.title" class="card-img-top">
+            <div class="category-badge">{{ post.category }}</div>
+          </div>
+          <div class="card-body">
+            <div class="post-meta">
+              <span class="post-date">{{ post.date | date:'MMMM d, y' }}</span>
+              <span class="post-author">by {{ post.author }}</span>
+            </div>
+            <h3 class="card-title">{{ post.title }}</h3>
+            <p class="card-summary">{{ post.summary }}</p>
+            <div class="post-tags">
+              <span *ngFor="let tag of post.tags" class="tag-badge">{{ tag }}</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a [routerLink]="['/blog', post.slug]" class="btn btn-link">
+              Read Full Article <mat-icon>arrow_forward</mat-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section section">
+  <div class="container">
+    <div class="newsletter-card">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-7 mb-4 mb-lg-0">
+          <h2>Stay Updated on Family Law</h2>
+          <p>Subscribe to our newsletter to receive the latest articles, legal updates, and family law tips directly to your inbox.</p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="newsletter-form">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Your Email Address</mat-label>
+              <input matInput placeholder="email@example.com" type="email">
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <button mat-raised-button color="accent" class="btn-block">Subscribe</button>
+            <small class="form-disclaimer">We respect your privacy. You can unsubscribe at any time.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="cta-content text-center">
+          <h2>Need Personalized Legal Advice?</h2>
+          <p>While our blog provides general information, each family law case is unique. Contact us for legal advice tailored to your specific situation.</p>
+          <a routerLink="/contact" class="btn btn-primary btn-lg">Schedule a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Legal Disclaimer Section -->
+<section class="disclaimer-section">
+  <div class="container">
+    <div class="disclaimer-content">
+      <h3>Legal Disclaimer</h3>
+      <p>The articles on this blog are for informational purposes only and do not constitute legal advice. The information provided is general in nature and may not apply to your specific situation. Every legal case is unique and requires personalized legal analysis.</p>
+      <p>For legal advice tailored to your specific situation, please contact our office to schedule a consultation with Attorney Meghan Miller.</p>
+    </div>
+  </div>
+</section>

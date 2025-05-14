@@ -1,0 +1,38 @@
+<header class="header" [ngClass]="{'scrolled': isScrolled}">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo" routerLink="/">
+        <img src="assets/logo.svg" alt="Meghan A Miller, Esq. Logo" class="logo-img">
+        <span class="logo-text">Meghan A Miller, Esq.</span>
+      </div>
+      
+      <nav class="main-nav" [ngClass]="{'nav-open': isMobileMenuOpen}">
+        <ul class="nav-list">
+          <li *ngFor="let item of navItems" class="nav-item" 
+              [ngClass]="{'active': isActive(item.path, item.exact)}">
+            <a [routerLink]="item.path" (click)="closeMobileMenu()">{{ item.label }}</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="contact-info d-none d-md-flex">
+        <a href="tel:+14158158915" class="phone-link">
+          <mat-icon>phone</mat-icon>
+          <span>(415) 815-8915</span>
+        </a>
+      </div>
+      
+      <button class="consultation-btn" mat-raised-button color="accent" routerLink="/contact">
+        Free Consultation
+      </button>
+      
+      <button class="menu-toggle" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-overlay" [ngClass]="{'active': isMobileMenuOpen}" (click)="closeMobileMenu()"></div>

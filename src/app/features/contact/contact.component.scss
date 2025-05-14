@@ -1,0 +1,352 @@
+@import '../../../styles.scss';
+
+// Page Header
+.page-header {
+  background-color: $background-light;
+  padding: 4rem 0 2rem;
+  margin-bottom: 2rem;
+  
+  h1 {
+    margin-bottom: 1rem;
+    animation-delay: 0.2s;
+  }
+  
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    
+    .breadcrumb-item {
+      color: $text-secondary;
+      
+      a {
+        color: $secondary-color;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: lighten($secondary-color, 10%);
+        }
+      }
+      
+      &.active {
+        color: $text-primary;
+      }
+      
+      & + .breadcrumb-item::before {
+        content: ">";
+        color: $text-secondary;
+      }
+    }
+  }
+}
+
+// Success Message
+.success-message-container {
+  background-color: rgba(76, 175, 80, 0.1);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  border-left: 4px solid #4CAF50;
+  
+  .success-message {
+    display: flex;
+    align-items: center;
+    
+    mat-icon {
+      color: #4CAF50;
+      font-size: 2rem;
+      width: 2rem;
+      height: 2rem;
+      margin-right: 1rem;
+    }
+    
+    .message-content {
+      flex-grow: 1;
+      
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+        color: #4CAF50;
+      }
+      
+      p {
+        margin-bottom: 0;
+        color: $text-primary;
+      }
+    }
+  }
+}
+
+// Contact Information Section
+.contact-info-section {
+  background-color: $background-dark;
+  
+  .info-content {
+    .lead {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: $secondary-color;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+  }
+  
+  .contact-methods {
+    margin: 2.5rem 0;
+    
+    .contact-method {
+      display: flex;
+      margin-bottom: 2.5rem;
+      
+      .method-icon {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: rgba(63, 81, 181, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1.5rem;
+        
+        mat-icon {
+          font-size: 30px;
+          width: 30px;
+          height: 30px;
+          color: $primary-color;
+        }
+      }
+      
+      .method-details {
+        h3 {
+          font-size: 1.3rem;
+          margin-bottom: 0.5rem;
+        }
+        
+        a {
+          display: block;
+          font-size: 1.1rem;
+          color: $text-primary;
+          margin-bottom: 0.5rem;
+          transition: color 0.3s ease;
+          
+          &:hover {
+            color: $secondary-color;
+          }
+        }
+        
+        p {
+          margin-bottom: 0;
+          color: $text-secondary;
+          font-size: 0.9rem;
+          
+          &:not(.detail-text) {
+            color: $text-primary;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+  
+  .office-image {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    
+    img {
+      width: 100%;
+      transition: transform 0.5s ease;
+    }
+    
+    .image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+    
+    &:hover img {
+      transform: scale(1.03);
+    }
+  }
+  
+  .contact-form-container {
+    background-color: $surface-dark;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-subtitle {
+      margin-bottom: 2rem;
+      color: $text-secondary;
+    }
+  }
+}
+
+// Consultation Section
+.consultation-section {
+  background-color: $background-light;
+  
+  .consultation-card {
+    height: 100%;
+    padding: 2rem;
+    
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+      color: $secondary-color;
+    }
+    
+    .consultation-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      
+      li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.75rem;
+        
+        &:before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: $secondary-color;
+        }
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  
+  .consultation-note {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(63, 81, 181, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    
+    mat-icon {
+      flex-shrink: 0;
+      color: $primary-color;
+      margin-right: 1rem;
+      margin-top: 0.25rem;
+    }
+    
+    p {
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+  }
+}
+
+// FAQ Quick Section
+.faq-quick-section {
+  background-color: $background-dark;
+  
+  .faq-content {
+    max-width: 800px;
+    margin: 0 auto;
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+  }
+  
+  .custom-accordion {
+    margin-bottom: 2.5rem;
+    
+    .mat-expansion-panel {
+      background-color: $surface-dark;
+      margin-bottom: 1rem;
+      
+      &:not(.mat-expanded) {
+        &:hover {
+          background-color: lighten($surface-dark, 3%);
+        }
+      }
+      
+      .mat-expansion-panel-header {
+        padding: 1.25rem;
+        
+        .mat-panel-title {
+          color: $text-primary;
+          font-weight: 500;
+        }
+      }
+      
+      .mat-expansion-panel-body {
+        padding: 0 1.25rem 1.25rem;
+        color: $text-secondary;
+        line-height: 1.7;
+      }
+    }
+  }
+}
+
+// Responsive Adjustments
+@media (max-width: 991px) {
+  .contact-info-section {
+    .info-content {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+    
+    .contact-form-container {
+      padding: 2rem;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .page-header {
+    padding: 3rem 0 1.5rem;
+  }
+  
+  .contact-info-section {
+    .contact-methods {
+      .contact-method {
+        flex-direction: column;
+        text-align: center;
+        
+        .method-icon {
+          margin: 0 auto 1rem;
+        }
+      }
+    }
+    
+    .contact-form-container {
+      padding: 1.5rem;
+    }
+  }
+  
+  .consultation-section {
+    .consultation-note {
+      flex-direction: column;
+      text-align: center;
+      
+      mat-icon {
+        margin: 0 auto 1rem;
+      }
+    }
+  }
+}

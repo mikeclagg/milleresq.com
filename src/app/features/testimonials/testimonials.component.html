@@ -1,0 +1,138 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="fade-in">Client Testimonials</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Testimonials</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- Testimonials Introduction -->
+<section class="testimonials-intro section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8 offset-lg-2 text-center">
+        <div class="intro-content">
+          <h2>What Our Clients Say</h2>
+          <p class="lead">These testimonials reflect the experiences of real clients who have worked with Attorney Meghan Miller on their family law matters. While every case is unique and results cannot be guaranteed, we strive to provide this level of service and care to all our clients.</p>
+          
+          <div class="overall-rating">
+            <div class="stars">
+              <mat-icon class="filled">star</mat-icon>
+              <mat-icon class="filled">star</mat-icon>
+              <mat-icon class="filled">star</mat-icon>
+              <mat-icon class="filled">star</mat-icon>
+              <mat-icon class="filled">star</mat-icon>
+            </div>
+            <div class="rating-text">
+              <strong>Excellent</strong> ({{ testimonials.length }} reviews)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter Section -->
+<section class="filter-section">
+  <div class="container">
+    <div class="filter-container">
+      <h3>Filter by Case Type:</h3>
+      <div class="filter-buttons">
+        <button *ngFor="let type of caseTypes" 
+                class="btn btn-filter" 
+                [ngClass]="{'active': caseTypeFilter === type.value}"
+                (click)="filterTestimonials(type.value)">
+          {{ type.label }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Grid -->
+<section class="testimonials-grid section">
+  <div class="container">
+    <div class="empty-state" *ngIf="filteredTestimonials.length === 0">
+      <mat-icon>sentiment_dissatisfied</mat-icon>
+      <h3>No testimonials found</h3>
+      <p>There are currently no testimonials for the selected case type. Please try selecting a different category.</p>
+      <button class="btn btn-primary" (click)="filterTestimonials('all')">View All Testimonials</button>
+    </div>
+    
+    <div class="row" *ngIf="filteredTestimonials.length > 0">
+      <div class="col-12 col-md-6 mb-4" *ngFor="let testimonial of filteredTestimonials">
+        <div class="testimonial-card card fade-in">
+          <div class="card-header">
+            <div class="client-info">
+              <div class="client-initial">{{ testimonial.name.charAt(0) }}</div>
+              <div class="client-details">
+                <h3 class="client-name">{{ testimonial.name }}</h3>
+                <span class="case-type">{{ testimonial.caseType }}</span>
+              </div>
+            </div>
+            <div class="rating">
+              <mat-icon *ngFor="let i of [1,2,3,4,5]" [class.filled]="i <= testimonial.rating">star</mat-icon>
+            </div>
+          </div>
+          
+          <div class="card-body">
+            <blockquote>
+              <p>"{{ testimonial.text }}"</p>
+            </blockquote>
+          </div>
+          
+          <div class="card-footer">
+            <div class="testimonial-date">
+              {{ testimonial.date | date:'MMMM d, y' }}
+            </div>
+            <div class="verification-badge">
+              <mat-icon>verified</mat-icon>
+              <span>Verified Client</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Leave a Testimonial Section -->
+<section class="leave-testimonial-section section">
+  <div class="container">
+    <div class="leave-testimonial-card">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-8 mb-4 mb-lg-0">
+          <h2>Are You a Current or Past Client?</h2>
+          <p>We value your feedback. If you've worked with Attorney Meghan Miller, we'd appreciate hearing about your experience. Please contact us to share your testimonial.</p>
+        </div>
+        <div class="col-12 col-lg-4 text-center text-lg-right">
+          <a routerLink="/contact" class="btn btn-secondary">Share Your Experience</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="cta-content text-center">
+          <h2>Ready to Work with a Trusted Family Law Attorney?</h2>
+          <p>Contact us today to schedule a consultation with Attorney Meghan Miller and experience the quality representation that our clients consistently praise.</p>
+          <div class="cta-buttons">
+            <a routerLink="/contact" class="btn btn-primary btn-lg">Schedule a Consultation</a>
+            <a routerLink="/practice-areas" class="btn btn-outline btn-lg">View Practice Areas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

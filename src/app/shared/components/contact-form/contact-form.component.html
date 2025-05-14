@@ -1,0 +1,92 @@
+<div class="contact-form-container">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="name" placeholder="John Smith">
+        <mat-icon matSuffix>person</mat-icon>
+        <mat-error *ngIf="hasError('name')">{{ getErrorMessage('name') }}</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="email@example.com" type="email">
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-error *ngIf="hasError('email')">{{ getErrorMessage('email') }}</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" placeholder="(555) 123-4567" type="tel">
+        <mat-icon matSuffix>phone</mat-icon>
+        <mat-error *ngIf="hasError('phone')">{{ getErrorMessage('phone') }}</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-row" *ngIf="showDetailedFields">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Case Type</mat-label>
+        <mat-select formControlName="caseType">
+          <mat-option *ngFor="let type of caseTypes" [value]="type.value">{{ type.label }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="hasError('caseType')">{{ getErrorMessage('caseType') }}</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Subject</mat-label>
+        <input matInput formControlName="subject" placeholder="Subject of your inquiry">
+        <mat-error *ngIf="hasError('subject')">{{ getErrorMessage('subject') }}</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message" rows="5" placeholder="Please describe your legal situation"></textarea>
+        <mat-error *ngIf="hasError('message')">{{ getErrorMessage('message') }}</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-row" *ngIf="showDetailedFields">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>How did you hear about us?</mat-label>
+        <mat-select formControlName="howDidYouHear">
+          <mat-option *ngFor="let source of referralSources" [value]="source.value">{{ source.label }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="hasError('howDidYouHear')">{{ getErrorMessage('howDidYouHear') }}</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-row terms-row">
+      <mat-checkbox formControlName="agreeToTerms" color="primary">
+        I agree to the terms and conditions and privacy policy
+      </mat-checkbox>
+      <mat-error *ngIf="hasError('agreeToTerms')" class="terms-error">
+        You must agree to the terms and conditions
+      </mat-error>
+    </div>
+    
+    <div class="form-actions">
+      <button mat-raised-button color="accent" type="submit" [disabled]="contactForm.invalid || isSubmitting">
+        <mat-icon *ngIf="isSubmitting">
+          <mat-spinner diameter="20"></mat-spinner>
+        </mat-icon>
+        <span *ngIf="!isSubmitting">Submit</span>
+        <span *ngIf="isSubmitting">Sending...</span>
+      </button>
+    </div>
+  </form>
+  
+  <div class="form-disclaimer">
+    <p>
+      <small>
+        Your information is confidential and protected by attorney-client privilege. 
+        We will respond to your inquiry within 1-2 business days.
+      </small>
+    </p>
+  </div>
+</div>

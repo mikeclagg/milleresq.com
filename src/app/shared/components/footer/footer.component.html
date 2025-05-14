@@ -1,0 +1,66 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-12 col-md-4 mb-4 mb-md-0">
+          <div class="footer-brand">
+            <img src="assets/logo.svg" alt="Meghan A Miller, Esq. Logo" class="footer-logo">
+            <h3 class="footer-title">Meghan A Miller, Esq.</h3>
+            <p class="footer-subtitle">Arizona Family Law Attorney</p>
+            <div class="footer-contact">
+              <div class="contact-item">
+                <mat-icon>phone</mat-icon>
+                <a href="tel:+14158158915">(415) 815-8915</a>
+              </div>
+              <div class="contact-item">
+                <mat-icon>email</mat-icon>
+                <a href="mailto:meghan&#64;milleresq.com">meghan&#64;milleresq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-12 col-md-8">
+          <div class="row">
+            <div class="col-6 col-md-4" *ngFor="let section of footerLinks">
+              <div class="footer-links">
+                <h4 class="links-title">{{ section.title }}</h4>
+                <ul class="links-list">
+                  <li *ngFor="let link of section.links">
+                    <a [routerLink]="link.path">{{ link.label }}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <p class="copyright">&copy; {{ currentYear }} Meghan A Miller, Esq. All rights reserved.</p>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="legal-links">
+            <a routerLink="/privacy-policy">Privacy Policy</a>
+            <span class="separator">|</span>
+            <a routerLink="/terms-of-service">Terms of Service</a>
+            <span class="separator">|</span>
+            <a routerLink="/sitemap">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="cta-bar">
+  <div class="container">
+    <div class="cta-content">
+      <p>Need legal assistance with your family law matters?</p>
+      <a routerLink="/contact" class="btn btn-secondary">Schedule a Consultation</a>
+    </div>
+  </div>
+</div>

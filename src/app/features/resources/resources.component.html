@@ -1,0 +1,169 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="fade-in">Resources</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Resources</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- Resources Introduction -->
+<section class="resources-intro section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8 offset-lg-2 text-center">
+        <div class="intro-content fade-in">
+          <h2>Family Law Resources</h2>
+          <p class="lead">Helpful information and tools for navigating family law matters in Arizona.</p>
+          <p>Below you'll find a collection of resources to help you better understand and navigate family law issues in Arizona. While these resources provide general information, they should not replace personalized legal advice. For guidance specific to your situation, please contact our office to schedule a consultation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Legal & Family Resources Section -->
+<section class="resources-links section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 mb-5">
+        <div class="resources-card fade-in">
+          <h3>Legal Resources</h3>
+          <p>Official sources for legal information and assistance in Arizona.</p>
+          
+          <div class="resource-list">
+            <div class="resource-item" *ngFor="let resource of legalResources">
+              <div class="resource-icon">
+                <mat-icon>{{ resource.icon }}</mat-icon>
+              </div>
+              <div class="resource-info">
+                <h4>{{ resource.title }}</h4>
+                <p>{{ resource.description }}</p>
+                <a [href]="resource.link" target="_blank" rel="noopener noreferrer" class="resource-link">
+                  Visit Website <mat-icon>open_in_new</mat-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-12 col-md-6 mb-5">
+        <div class="resources-card fade-in">
+          <h3>Family Support Resources</h3>
+          <p>Organizations that provide support services for families in Arizona.</p>
+          
+          <div class="resource-list">
+            <div class="resource-item" *ngFor="let resource of familyResources">
+              <div class="resource-icon">
+                <mat-icon>{{ resource.icon }}</mat-icon>
+              </div>
+              <div class="resource-info">
+                <h4>{{ resource.title }}</h4>
+                <p>{{ resource.description }}</p>
+                <a [href]="resource.link" target="_blank" rel="noopener noreferrer" class="resource-link">
+                  Visit Website <mat-icon>open_in_new</mat-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Court Forms Section -->
+<section class="court-forms-section section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Common Court Forms</h2>
+      <p>Frequently used forms for Arizona family law matters</p>
+    </div>
+    
+    <div class="forms-disclaimer mb-4">
+      <mat-icon>info</mat-icon>
+      <p>The forms listed below are provided as examples only. Each county in Arizona may have slightly different forms or requirements. For the most current forms applicable to your specific case and county, please visit your local court's website or contact our office.</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let form of courtForms">
+        <div class="form-card card fade-in">
+          <div class="card-header">
+            <h4>{{ form.title }}</h4>
+            <span class="category-badge">{{ form.category }}</span>
+          </div>
+          <div class="card-body">
+            <p>{{ form.description }}</p>
+          </div>
+          <div class="card-footer">
+            <a [href]="form.downloadLink" class="btn btn-outline btn-block">
+              <mat-icon>file_download</mat-icon> Access Form
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Educational Guides Section -->
+<section class="educational-guides-section section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Educational Guides</h2>
+      <p>Informative articles on common family law topics</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 col-md-6 mb-4" *ngFor="let guide of educationalGuides">
+        <div class="guide-card card fade-in">
+          <div class="card-body">
+            <span class="guide-category">{{ guide.category }}</span>
+            <h3 class="guide-title">{{ guide.title }}</h3>
+            <p class="guide-description">{{ guide.description }}</p>
+            <a routerLink="/contact" class="btn btn-text">
+              Request Full Guide <mat-icon>arrow_forward</mat-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="guides-note mt-4 text-center">
+      <p>To request any of these educational guides, please <a routerLink="/contact">contact our office</a>. We're happy to provide these resources free of charge as part of our commitment to helping individuals understand their legal rights and options.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Resources Section -->
+<section class="additional-resources-section section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="additional-resources-card">
+          <h3>Need Additional Resources?</h3>
+          <p>If you're looking for specific information or resources not listed here, please don't hesitate to reach out. As part of our commitment to client service, we maintain an extensive library of family law resources and can provide you with information tailored to your specific situation.</p>
+          <div class="text-center mt-4">
+            <a routerLink="/contact" class="btn btn-secondary">Contact Us for More Resources</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Legal Disclaimer Section -->
+<section class="disclaimer-section">
+  <div class="container">
+    <div class="disclaimer-content">
+      <h3>Legal Disclaimer</h3>
+      <p>The resources provided on this page are for informational purposes only and do not constitute legal advice. Links to third-party websites are provided as a convenience and do not imply endorsement of the linked websites or their content. Every legal situation is unique and requires personalized legal analysis.</p>
+      <p>For legal advice tailored to your specific situation, please contact our office to schedule a consultation with Attorney Meghan Miller.</p>
+    </div>
+  </div>
+</section>

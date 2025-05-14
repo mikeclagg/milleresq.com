@@ -1,0 +1,165 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="fade-in">Practice Areas</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Practice Areas</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- Practice Areas Overview -->
+<section class="practice-overview section">
+  <div class="container">
+    <div class="overview-content">
+      <div class="row">
+        <div class="col-12 col-md-7 mb-4 mb-md-0">
+          <h2>Arizona Family Law Services</h2>
+          <p class="lead">Comprehensive legal solutions for all family law matters in Arizona.</p>
+          <p>At the Law Office of Meghan A Miller, we provide knowledgeable and compassionate legal representation across all areas of family law. Our focus is on delivering personalized service tailored to your unique circumstances while achieving the best possible outcomes for you and your family.</p>
+          <p>With years of experience in Arizona family law, Attorney Miller has the expertise to guide you through even the most complex legal situations with confidence and care.</p>
+          
+          <div class="area-navigation mt-4">
+            <h3>Quick Navigation</h3>
+            <div class="nav-buttons">
+              <button *ngFor="let area of practiceAreas" 
+                      class="btn btn-outline nav-btn" 
+                      (click)="scrollToArea(area.slug)">
+                <mat-icon>{{area.icon}}</mat-icon>
+                <span>{{area.title}}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-5">
+          <div class="overview-image">
+            <img src="https://pixabay.com/get/gb63064cf652720e3939ac03c32135a56c92dcfa437d1e87de1f4f2a9ead280cdab286bbe6b8867060872d8472903c88ef80c589fcd348f064c04029a570bb463_1280.jpg" 
+                 alt="Courtroom Scene" 
+                 class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Individual Practice Areas -->
+<section class="practice-areas-detail section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Legal Services</h2>
+      <p>Expert representation across all aspects of family law</p>
+    </div>
+    
+    <div class="area-detail-container">
+      <div *ngFor="let area of practiceAreas; let i = index" 
+           class="area-detail fade-in" 
+           [id]="area.slug" 
+           [ngClass]="{'even-item': i % 2 === 0}">
+        <div class="row">
+          <div class="col-12 col-lg-8" [ngClass]="{'order-lg-2': i % 2 !== 0}">
+            <div class="area-content">
+              <div class="area-icon">
+                <mat-icon>{{area.icon}}</mat-icon>
+              </div>
+              <h3>{{area.title}}</h3>
+              <p class="area-full-description">{{area.fullDescription}}</p>
+              
+              <div *ngIf="area.bullets && area.bullets.length" class="area-bullets">
+                <h4>How We Can Help:</h4>
+                <ul>
+                  <li *ngFor="let bullet of area.bullets">{{bullet}}</li>
+                </ul>
+              </div>
+              
+              <div class="area-cta">
+                <a routerLink="/contact" class="btn btn-secondary">Consult About {{area.title}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4" [ngClass]="{'order-lg-1': i % 2 !== 0}">
+            <div class="area-image">
+              <div class="image-card">
+                <mat-icon class="large-icon">{{area.icon}}</mat-icon>
+                <h4>{{area.title}}</h4>
+                <p>{{area.shortDescription}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="why-choose-section section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Choose Us For Family Law</h2>
+      <p>Compassionate advocacy with a track record of success</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="why-choose-card card fade-in">
+          <div class="card-icon">
+            <mat-icon>psychology</mat-icon>
+          </div>
+          <h3>Empathetic Approach</h3>
+          <p>We understand the emotional challenges of family law matters and provide supportive guidance throughout the process.</p>
+        </div>
+      </div>
+      
+      <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="why-choose-card card fade-in">
+          <div class="card-icon">
+            <mat-icon>grade</mat-icon>
+          </div>
+          <h3>Specialized Expertise</h3>
+          <p>Our practice focuses exclusively on family law, giving us deep knowledge of Arizona's legal landscape.</p>
+        </div>
+      </div>
+      
+      <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="why-choose-card card fade-in">
+          <div class="card-icon">
+            <mat-icon>gavel</mat-icon>
+          </div>
+          <h3>Strategic Advocacy</h3>
+          <p>We develop tailored legal strategies to achieve your goals while protecting your rights and interests.</p>
+        </div>
+      </div>
+      
+      <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="why-choose-card card fade-in">
+          <div class="card-icon">
+            <mat-icon>support_agent</mat-icon>
+          </div>
+          <h3>Responsive Service</h3>
+          <p>We prioritize clear communication and accessibility, ensuring you're informed at every stage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section section">
+  <div class="container">
+    <div class="cta-card">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-8 mb-4 mb-lg-0">
+          <h2>Ready to Discuss Your Family Law Matter?</h2>
+          <p>Contact us today to schedule a consultation with Attorney Meghan Miller. We're here to help you navigate your legal challenges with confidence.</p>
+        </div>
+        <div class="col-12 col-lg-4 text-center text-lg-right">
+          <a routerLink="/contact" class="btn btn-secondary btn-lg">Schedule a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

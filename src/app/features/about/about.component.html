@@ -1,0 +1,247 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="fade-in">About Meghan A Miller</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">About</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- Attorney Profile Section -->
+<section class="attorney-profile section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+        <div class="attorney-image">
+          <img src="https://pixabay.com/get/g3feecfd3a5791c3462b7486e3a25452d82dc7a96800203b73ddf2c4e58f1e288572f87719b0323dee93d7cb4a200e7072189e29fbf206ad1c8b1244d479a5381_1280.jpg" 
+               alt="Meghan A Miller, Esq." 
+               class="img-fluid rounded">
+          
+          <div class="contact-card mt-4">
+            <h3>Contact Information</h3>
+            <div class="contact-info">
+              <div class="info-item">
+                <mat-icon>phone</mat-icon>
+                <a href="tel:+14158158915">(415) 815-8915</a>
+              </div>
+              <div class="info-item">
+                <mat-icon>email</mat-icon>
+                <a href="mailto:meghan&#64;milleresq.com">meghan&#64;milleresq.com</a>
+              </div>
+              <div class="info-item">
+                <mat-icon>location_on</mat-icon>
+                <span>Phoenix, Arizona</span>
+              </div>
+            </div>
+            <a routerLink="/contact" class="btn btn-primary btn-block mt-3">Schedule a Consultation</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-12 col-lg-8">
+        <div class="attorney-bio">
+          <h2>Arizona Family Law Attorney</h2>
+          <p class="lead">Dedicated to helping families navigate legal challenges with compassion and expertise.</p>
+          
+          <div class="bio-section">
+            <h3>Background</h3>
+            <p>Meghan A Miller is a dedicated family law attorney with extensive experience in all aspects of family law in Arizona. With a passion for helping families navigate challenging legal situations, Meghan provides personalized representation focused on achieving the best possible outcomes for her clients.</p>
+            <p>As the founder of her practice, Meghan has built a reputation for her thorough approach, attention to detail, and commitment to client service. She understands that family law matters are deeply personal and often emotionally challenging, and she approaches each case with sensitivity and care.</p>
+          </div>
+          
+          <div class="bio-section">
+            <h3>Philosophy</h3>
+            <p>Meghan believes in a client-centered approach to legal representation. She takes the time to understand each client's unique circumstances, goals, and concerns before developing a legal strategy tailored to their specific needs. While she is a strong advocate who will vigorously represent her clients' interests, she also recognizes the value of amicable resolution when possible, particularly in family law matters where ongoing relationships often continue after legal proceedings conclude.</p>
+            <p>Her practice is built on the core values of integrity, compassion, and excellence. Clients appreciate her straightforward communication style, accessibility, and dedication to achieving favorable outcomes through either negotiation or litigation when necessary.</p>
+          </div>
+          
+          <div class="bio-section">
+            <h3>Experience</h3>
+            <p>With years of experience practicing family law in Arizona, Meghan has successfully represented clients in a wide range of family law matters, including:</p>
+            <ul class="bio-list">
+              <li>Divorce and legal separation</li>
+              <li>Child custody and parenting time arrangements</li>
+              <li>Child support establishment and modification</li>
+              <li>Spousal maintenance (alimony)</li>
+              <li>Property division and debt allocation</li>
+              <li>Post-decree modifications and enforcement</li>
+              <li>Paternity actions</li>
+              <li>Orders of protection</li>
+              <li>Prenuptial and postnuptial agreements</li>
+            </ul>
+          </div>
+          
+          <div class="bio-section">
+            <h3>Education & Credentials</h3>
+            
+            <div class="credential-section">
+              <h4>Education</h4>
+              <ul class="credential-list">
+                <li *ngFor="let edu of education">
+                  <strong>{{ edu.degree }}</strong> - {{ edu.institution }}, {{ edu.year }}
+                </li>
+              </ul>
+            </div>
+            
+            <div class="credential-section">
+              <h4>Bar Admissions</h4>
+              <ul class="credential-list">
+                <li *ngFor="let admission of admissions">{{ admission }}</li>
+              </ul>
+            </div>
+            
+            <div class="credential-section">
+              <h4>Certifications</h4>
+              <ul class="credential-list">
+                <li *ngFor="let cert of certifications">{{ cert }}</li>
+              </ul>
+            </div>
+            
+            <div class="credential-section">
+              <h4>Professional Associations</h4>
+              <ul class="credential-list">
+                <li *ngFor="let assoc of associations">{{ assoc }}</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="bio-section">
+            <h3>Community Involvement</h3>
+            <p>Meghan is committed to improving access to legal services in her community. She regularly volunteers with local legal aid organizations to provide pro bono representation to low-income individuals in family law matters. She also participates in community education programs, offering workshops on family law topics to help individuals understand their legal rights and options.</p>
+          </div>
+          
+          <div class="cta-box mt-5">
+            <h3>Schedule a Consultation</h3>
+            <p>If you're facing a family law issue, Meghan is ready to help you understand your legal options and develop a strategy tailored to your specific situation.</p>
+            <a routerLink="/contact" class="btn btn-secondary">Contact Attorney Miller Today</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Approach Section -->
+<section class="approach-section section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Approach</h2>
+      <p>How we work with clients to achieve their family law goals</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4">
+        <div class="approach-card card fade-in">
+          <div class="card-icon">
+            <mat-icon>headset_mic</mat-icon>
+          </div>
+          <h3>Personalized Attention</h3>
+          <p>Every family law case is unique. We take the time to understand your specific situation, concerns, and goals before developing a legal strategy tailored to your needs.</p>
+        </div>
+      </div>
+      
+      <div class="col-12 col-md-4 mb-4">
+        <div class="approach-card card fade-in">
+          <div class="card-icon">
+            <mat-icon>gavel</mat-icon>
+          </div>
+          <h3>Strategic Advocacy</h3>
+          <p>Whether through negotiation or litigation, we provide strong, strategic representation to protect your interests and rights throughout the legal process.</p>
+        </div>
+      </div>
+      
+      <div class="col-12 col-md-4 mb-4">
+        <div class="approach-card card fade-in">
+          <div class="card-icon">
+            <mat-icon>support_agent</mat-icon>
+          </div>
+          <h3>Responsive Communication</h3>
+          <p>We believe in keeping clients informed at every stage. You'll receive prompt responses to your questions and regular updates about your case's progress.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="why-choose-section section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+        <div class="why-choose-content fade-in">
+          <h2>Why Choose Our Firm</h2>
+          <p class="lead">Experienced representation with a personal touch</p>
+          
+          <div class="why-choose-item">
+            <div class="item-icon">
+              <mat-icon>verified</mat-icon>
+            </div>
+            <div class="item-content">
+              <h3>Specialized Experience</h3>
+              <p>Our practice is focused exclusively on family law, giving us deep expertise in all related legal matters.</p>
+            </div>
+          </div>
+          
+          <div class="why-choose-item">
+            <div class="item-icon">
+              <mat-icon>speed</mat-icon>
+            </div>
+            <div class="item-content">
+              <h3>Efficient Resolution</h3>
+              <p>We work diligently to resolve your legal matters efficiently while protecting your interests.</p>
+            </div>
+          </div>
+          
+          <div class="why-choose-item">
+            <div class="item-icon">
+              <mat-icon>favorite</mat-icon>
+            </div>
+            <div class="item-content">
+              <h3>Compassionate Guidance</h3>
+              <p>We understand the emotional challenges of family law matters and provide supportive guidance throughout the process.</p>
+            </div>
+          </div>
+          
+          <div class="why-choose-item">
+            <div class="item-icon">
+              <mat-icon>rate_review</mat-icon>
+            </div>
+            <div class="item-content">
+              <h3>Client Satisfaction</h3>
+              <p>Our commitment to exceptional service is reflected in our positive client reviews and testimonials.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-12 col-lg-6">
+        <div class="why-choose-image fade-in">
+          <img src="https://pixabay.com/get/gd061bf518cf04b9f40e6d8d9ca92fa6631b4743f34af0c3c7138935f108c2cf822e4ef4f34e31269590a6f8623cb812d8d44883f7c8c3a9a00cacd007c6828ca_1280.jpg" 
+               alt="Family Portrait" 
+               class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section section">
+  <div class="container">
+    <div class="cta-card">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-8 mb-4 mb-lg-0">
+          <h2>Ready to Discuss Your Family Law Matter?</h2>
+          <p>Contact us today to schedule a consultation with Attorney Meghan Miller. We're here to help you navigate your legal challenges with confidence.</p>
+        </div>
+        <div class="col-12 col-lg-4 text-center text-lg-right">
+          <a routerLink="/contact" class="btn btn-secondary btn-lg">Schedule a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

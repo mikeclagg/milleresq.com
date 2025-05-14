@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .scale {
+        fill: none;
+        stroke: #3f51b5;
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .scale-dark {
+        fill: none;
+        stroke: #ffb300;
+        stroke-width: 2;
+        stroke-dasharray: 2 2;
+      }
+    </style>
+  </defs>
+  
+  <!-- Scales of Justice -->
+  <g transform="translate(40, 20)">
+    <!-- Center Pole -->
+    <line class="scale" x1="60" y1="20" x2="60" y2="160"/>
+    
+    <!-- Top Bar -->
+    <line class="scale" x1="10" y1="20" x2="110" y2="20"/>
+    
+    <!-- Left Scale -->
+    <line class="scale" x1="10" y1="20" x2="10" y2="40"/>
+    <ellipse class="scale" cx="10" cy="60" rx="20" ry="10"/>
+    <ellipse class="scale-dark" cx="10" cy="60" rx="15" ry="7"/>
+    
+    <!-- Right Scale -->
+    <line class="scale" x1="110" y1="20" x2="110" y2="40"/>
+    <ellipse class="scale" cx="110" cy="60" rx="20" ry="10"/>
+    <ellipse class="scale-dark" cx="110" cy="60" rx="15" ry="7"/>
+    
+    <!-- Base -->
+    <path class="scale" d="M30,160 L90,160 L80,140 L40,140 Z"/>
+  </g>
+</svg>

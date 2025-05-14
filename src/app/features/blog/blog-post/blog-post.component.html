@@ -1,0 +1,160 @@
+<!-- Page Header -->
+<section class="page-header" *ngIf="post">
+  <div class="container">
+    <h1 class="fade-in">{{ post.title }}</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/blog">Blog</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- Post Not Found State -->
+<section class="section" *ngIf="!post">
+  <div class="container">
+    <div class="not-found-state">
+      <mat-icon>search_off</mat-icon>
+      <h2>Article Not Found</h2>
+      <p>The article you're looking for doesn't exist or has been moved.</p>
+      <a routerLink="/blog" class="btn btn-primary">View All Articles</a>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Post Content -->
+<section class="blog-post-section section" *ngIf="post">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <div class="blog-post-content">
+          <div class="post-meta">
+            <div class="category">
+              <span class="category-badge">{{ post.category }}</span>
+            </div>
+            <div class="date-author">
+              <span class="post-date">{{ formatDate(post.date) }}</span>
+              <span class="post-author">by {{ post.author }}</span>
+            </div>
+          </div>
+          
+          <div class="post-featured-image">
+            <img [src]="post.imageUrl" [alt]="post.title" class="img-fluid">
+          </div>
+          
+          <div class="post-content" [innerHTML]="post.content"></div>
+          
+          <div class="post-tags">
+            <span class="tags-label">Tags:</span>
+            <div class="tags-list">
+              <span *ngFor="let tag of post.tags" class="tag-badge">{{ tag }}</span>
+            </div>
+          </div>
+          
+          <div class="post-share">
+            <span class="share-label">Share this article:</span>
+            <div class="share-buttons">
+              <a href="#" class="share-button">
+                <mat-icon>facebook</mat-icon>
+              </a>
+              <a href="#" class="share-button">
+                <mat-icon>twitter</mat-icon>
+              </a>
+              <a href="#" class="share-button">
+                <mat-icon>link</mat-icon>
+              </a>
+              <a href="#" class="share-button">
+                <mat-icon>email</mat-icon>
+              </a>
+            </div>
+          </div>
+          
+          <div class="author-bio">
+            <div class="author-avatar">
+              <mat-icon>person</mat-icon>
+            </div>
+            <div class="author-info">
+              <h3>{{ post.author }}</h3>
+              <p>Arizona family law attorney Meghan Miller provides expert legal counsel for divorce, child custody, support, and all family law matters. With years of experience in Arizona family law, she is dedicated to achieving the best possible outcomes for her clients.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-12 col-lg-4">
+        <div class="blog-sidebar">
+          <div class="sidebar-section attorney-cta">
+            <h3>Need Legal Assistance?</h3>
+            <p>Contact our office to discuss your family law matter with Attorney Meghan Miller.</p>
+            <a routerLink="/contact" class="btn btn-secondary btn-block">Schedule a Consultation</a>
+          </div>
+          
+          <div class="sidebar-section categories">
+            <h3>Categories</h3>
+            <ul class="category-list">
+              <li><a routerLink="/blog" [queryParams]="{category: 'Divorce'}">Divorce</a></li>
+              <li><a routerLink="/blog" [queryParams]="{category: 'Child Custody'}">Child Custody</a></li>
+              <li><a routerLink="/blog" [queryParams]="{category: 'Child Support'}">Child Support</a></li>
+              <li><a routerLink="/blog" [queryParams]="{category: 'Property Division'}">Property Division</a></li>
+              <li><a routerLink="/blog" [queryParams]="{category: 'Spousal Maintenance'}">Spousal Maintenance</a></li>
+              <li><a routerLink="/blog" [queryParams]="{category: 'Parenting'}">Parenting</a></li>
+            </ul>
+          </div>
+          
+          <div class="sidebar-section related-posts" *ngIf="relatedPosts.length > 0">
+            <h3>Related Articles</h3>
+            <div class="related-post-item" *ngFor="let relatedPost of relatedPosts">
+              <a [routerLink]="['/blog', relatedPost.slug]" class="related-post-link">
+                <div class="related-post-image">
+                  <img [src]="relatedPost.imageUrl" [alt]="relatedPost.title">
+                </div>
+                <div class="related-post-info">
+                  <h4>{{ relatedPost.title }}</h4>
+                  <span class="related-post-date">{{ formatDate(relatedPost.date) }}</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <div class="sidebar-section newsletter">
+            <h3>Stay Updated</h3>
+            <p>Subscribe to our newsletter for the latest legal insights.</p>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Your Email Address</mat-label>
+              <input matInput placeholder="email@example.com" type="email">
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <button mat-raised-button color="accent" class="btn-block">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Next/Previous Posts Navigation -->
+<section class="post-navigation section" *ngIf="post">
+  <div class="container">
+    <div class="nav-buttons">
+      <a routerLink="/blog" class="btn btn-outline">
+        <mat-icon>arrow_back</mat-icon> Back to All Articles
+      </a>
+      <a routerLink="/contact" class="btn btn-primary">
+        Schedule a Consultation <mat-icon>arrow_forward</mat-icon>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Legal Disclaimer Section -->
+<section class="disclaimer-section" *ngIf="post">
+  <div class="container">
+    <div class="disclaimer-content">
+      <h3>Legal Disclaimer</h3>
+      <p>The information provided in this article is for general informational purposes only and does not constitute legal advice. Every legal situation is unique and requires personalized legal analysis. The content reflects general principles of law that may not apply to your specific circumstances.</p>
+      <p>For legal advice tailored to your specific situation, please contact our office to schedule a consultation with Attorney Meghan Miller.</p>
+    </div>
+  </div>
+</section>

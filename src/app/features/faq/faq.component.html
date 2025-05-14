@@ -1,0 +1,116 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="fade-in">Frequently Asked Questions</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- FAQ Introduction -->
+<section class="faq-intro section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8 offset-lg-2 text-center">
+        <div class="intro-content fade-in">
+          <h2>Family Law Answers</h2>
+          <p class="lead">Find answers to common questions about family law matters in Arizona.</p>
+          <p>The information provided here offers general guidance on family law topics but should not be considered legal advice for your specific situation. Every family law case is unique and requires personalized legal analysis. For advice tailored to your circumstances, please contact our office to schedule a consultation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Categories -->
+<section class="faq-categories section">
+  <div class="container">
+    <div class="categories-container">
+      <h3>Browse by Category</h3>
+      <div class="category-buttons">
+        <button *ngFor="let category of categories" 
+                class="category-btn" 
+                [ngClass]="{'active': activeCategory === category.id}"
+                (click)="filterFaqs(category.id)">
+          <span [ngSwitch]="category.id">
+            <mat-icon *ngSwitchCase="'divorce'">family_restroom</mat-icon>
+            <mat-icon *ngSwitchCase="'custody'">child_care</mat-icon>
+            <mat-icon *ngSwitchCase="'support'">attach_money</mat-icon>
+            <mat-icon *ngSwitchCase="'alimony'">payments</mat-icon>
+            <mat-icon *ngSwitchCase="'property'">home</mat-icon>
+            <mat-icon *ngSwitchCase="'process'">gavel</mat-icon>
+            <mat-icon *ngSwitchDefault>help</mat-icon>
+          </span>
+          <span class="btn-text">{{ category.name }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Content -->
+<section class="faq-content section">
+  <div class="container">
+    <div class="faq-list-container">
+      <div class="faq-count" *ngIf="filteredFaqs.length > 0">
+        Showing {{ filteredFaqs.length }} questions 
+        <span *ngIf="activeCategory !== 'all'">in {{ getCategoryName(activeCategory) }}</span>
+      </div>
+      
+      <div class="empty-state" *ngIf="filteredFaqs.length === 0">
+        <mat-icon>search_off</mat-icon>
+        <h3>No Questions Found</h3>
+        <p>There are currently no questions in this category. Please select a different category.</p>
+        <button class="btn btn-primary" (click)="filterFaqs('all')">View All Questions</button>
+      </div>
+      
+      <div class="faq-list" *ngIf="filteredFaqs.length > 0">
+        <div class="faq-item" *ngFor="let faq of filteredFaqs" [ngClass]="{'expanded': expandedId === faq.id}">
+          <div class="faq-question" (click)="toggleExpand(faq.id)">
+            <div class="question-text">
+              <h3>{{ faq.question }}</h3>
+            </div>
+            <div class="expand-icon">
+              <mat-icon>{{ expandedId === faq.id ? 'remove' : 'add' }}</mat-icon>
+            </div>
+          </div>
+          <div class="faq-answer" [ngClass]="{'show': expandedId === faq.id}">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Questions Section -->
+<section class="additional-questions section">
+  <div class="container">
+    <div class="additional-questions-card">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-8 mb-4 mb-lg-0">
+          <h2>Have a Question Not Answered Here?</h2>
+          <p>If you can't find the information you're looking for, please don't hesitate to contact us. We're happy to answer your specific questions during a consultation.</p>
+        </div>
+        <div class="col-12 col-lg-4 text-center text-lg-right">
+          <a routerLink="/contact" class="btn btn-secondary">Ask Your Question</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Disclaimer Section -->
+<section class="disclaimer-section">
+  <div class="container">
+    <div class="disclaimer-content">
+      <h3>Legal Disclaimer</h3>
+      <p>The information provided on this page is intended for general informational purposes only and should not be construed as legal advice. Every legal situation is unique and requires personalized legal analysis. The answers provided here are general in nature and may not apply to your specific circumstances.</p>
+      <p>No attorney-client relationship is created by your use of this website or by reading these FAQs. For legal advice tailored to your specific situation, please contact our office to schedule a consultation with Attorney Meghan Miller.</p>
+    </div>
+  </div>
+</section>

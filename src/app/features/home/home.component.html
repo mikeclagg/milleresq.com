@@ -1,0 +1,212 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="slide-up">Arizona Family Law Attorney</h1>
+      <h2 class="slide-up">Compassionate Legal Representation For Your Family's Future</h2>
+      <p class="slide-up">Dedicated to providing personalized legal services for all family law matters in Arizona</p>
+      <div class="hero-buttons slide-up">
+        <a routerLink="/contact" class="btn btn-secondary">Schedule a Consultation</a>
+        <a routerLink="/practice-areas" class="btn btn-outline">Learn About Our Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="intro-section section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+        <div class="intro-content fade-in">
+          <h2>Expert Family Law Representation</h2>
+          <p class="lead">At the Law Office of Meghan A Miller, we understand that family legal matters can be emotionally challenging and complex.</p>
+          <p>With years of experience in Arizona family law, our firm is dedicated to providing compassionate, effective legal counsel to help you navigate these difficult times.</p>
+          <p>We work closely with each client to understand their unique situation, providing personalized legal strategies that protect their interests and help them move forward with confidence.</p>
+          <div class="intro-features">
+            <div class="feature">
+              <mat-icon>check_circle</mat-icon>
+              <span>Personalized Legal Strategies</span>
+            </div>
+            <div class="feature">
+              <mat-icon>check_circle</mat-icon>
+              <span>Compassionate Client Service</span>
+            </div>
+            <div class="feature">
+              <mat-icon>check_circle</mat-icon>
+              <span>Experienced Court Representation</span>
+            </div>
+          </div>
+          <a routerLink="/about" class="btn btn-primary mt-4">About Attorney Meghan Miller</a>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="intro-image fade-in">
+          <img src="https://pixabay.com/get/g23bec8c9c627eada784cc4bd892be281740c79f3e1e0b406c785f4a4c2a16a995c8e8da5ee1becc68b0f25c604aa7a829dc5c06c1e4d4504631d0e6a778fa894_1280.jpg" 
+               alt="Family Law Office" 
+               class="img-fluid rounded">
+          <div class="image-caption">Our professional law office in Arizona</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Practice Areas Section -->
+<section class="practice-areas-section section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Practice Areas</h2>
+      <p>Comprehensive family law services tailored to your needs</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4" *ngFor="let area of featuredPracticeAreas">
+        <div class="practice-area-card card fade-in">
+          <div class="card-icon">
+            <mat-icon>{{ area.icon }}</mat-icon>
+          </div>
+          <h3 class="card-title">{{ area.title }}</h3>
+          <p class="card-description">{{ area.shortDescription }}</p>
+          <a [routerLink]="['/practice-areas']" [fragment]="area.slug" class="card-link">
+            Learn More <mat-icon>arrow_forward</mat-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-5">
+      <a routerLink="/practice-areas" class="btn btn-primary">View All Practice Areas</a>
+    </div>
+  </div>
+</section>
+
+<!-- Consultation Section -->
+<section class="consultation-section section">
+  <div class="container">
+    <div class="consultation-card">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-7 mb-4 mb-lg-0">
+          <div class="consultation-content">
+            <h2>Schedule Your Consultation</h2>
+            <p class="lead">Take the first step toward resolving your family law matter with professional legal guidance.</p>
+            <p>During your initial consultation, we'll discuss your legal concerns, explore possible solutions, and outline how our firm can help protect your interests and achieve your goals.</p>
+            <div class="consultation-features">
+              <div class="feature">
+                <mat-icon>timer</mat-icon>
+                <span>Prompt Responses</span>
+              </div>
+              <div class="feature">
+                <mat-icon>lock</mat-icon>
+                <span>Confidential Discussions</span>
+              </div>
+              <div class="feature">
+                <mat-icon>description</mat-icon>
+                <span>Comprehensive Case Evaluation</span>
+              </div>
+            </div>
+            <a routerLink="/contact" class="btn btn-secondary mt-4">Contact Us Today</a>
+          </div>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="consultation-image">
+            <img src="https://pixabay.com/get/gf413a85981e174ed8756f78afe87c5a8afe5e9becdab59e4421cc30e7565650a01c441d1011fb16391a7e3a23afe525c2fcd161c415e1f5709007b06da6a9bcf_1280.jpg" 
+                 alt="Legal Consultation" 
+                 class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section section">
+  <div class="container">
+    <div class="section-title">
+      <h2>What Our Clients Say</h2>
+      <p>Hear from those we've helped navigate their family law matters</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 col-md-6 mb-4" *ngFor="let testimonial of featuredTestimonials">
+        <div class="testimonial-card card fade-in">
+          <div class="rating">
+            <mat-icon *ngFor="let i of [1,2,3,4,5]" [class.filled]="i <= testimonial.rating">star</mat-icon>
+          </div>
+          <blockquote class="testimonial-text">
+            "{{ testimonial.text }}"
+          </blockquote>
+          <div class="testimonial-author">
+            <strong>{{ testimonial.name }}</strong>
+            <span>{{ testimonial.caseType }} Case</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-4">
+      <a routerLink="/testimonials" class="btn btn-outline">Read More Testimonials</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-section section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-5 mb-4 mb-lg-0">
+        <div class="contact-info">
+          <h2>Get In Touch</h2>
+          <p class="lead">We're here to help with your family law needs.</p>
+          
+          <div class="contact-method">
+            <div class="icon-container">
+              <mat-icon>phone</mat-icon>
+            </div>
+            <div class="info-container">
+              <h3>Phone</h3>
+              <a href="tel:+14158158915">(415) 815-8915</a>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="icon-container">
+              <mat-icon>email</mat-icon>
+            </div>
+            <div class="info-container">
+              <h3>Email</h3>
+              <a href="mailto:meghan&#64;milleresq.com">meghan&#64;milleresq.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="icon-container">
+              <mat-icon>schedule</mat-icon>
+            </div>
+            <div class="info-container">
+              <h3>Office Hours</h3>
+              <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+            </div>
+          </div>
+          
+          <div class="contact-image mt-4">
+            <img src="https://pixabay.com/get/g44f5a2050942e92b053f0a7b39e4a35b62b0e73e31c36d8c30db8d245dc12076729c9f142a19ae2709e8045010259cf0121b998b811f5695497f16fcbb0a6d6a_1280.jpg" 
+                 alt="Family Portrait" 
+                 class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-12 col-lg-7">
+        <div class="contact-form-wrapper">
+          <h2 class="form-title">Send Us a Message</h2>
+          <p class="form-subtitle">Complete the form below and we'll get back to you promptly.</p>
+          
+          <app-contact-form [showDetailedFields]="false"></app-contact-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

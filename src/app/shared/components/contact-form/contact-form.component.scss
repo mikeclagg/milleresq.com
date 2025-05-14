@@ -1,0 +1,68 @@
+@import '../../../../styles.scss';
+
+.contact-form-container {
+  background-color: $surface-dark;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.form-row {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: calc(50% - 0.5rem);
+}
+
+.terms-row {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.terms-error {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  color: #f44336;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  
+  button {
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    mat-icon {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.form-disclaimer {
+  margin-top: 1.5rem;
+  color: $text-secondary;
+  font-style: italic;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .half-width {
+    width: 100%;
+  }
+  
+  .contact-form-container {
+    padding: 1.5rem;
+  }
+}
